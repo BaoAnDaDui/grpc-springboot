@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package com.baoan.grpc;
+
+option java_multiple_files = true;
+option java_package = "net.devh.boot.grpc.examples.lib";
+option java_outer_classname = "HelloWorldProto";
+
+
+service HelloService {
+  // 发送 一个 sayHello
+  rpc test (HelloRequest) returns (HelloReply) {
+  }
+}
+
+// 请求体
+message HelloRequest {
+  string name = 1;
+}
+
+// 响应
+message HelloReply {
+  string message = 1;
+}

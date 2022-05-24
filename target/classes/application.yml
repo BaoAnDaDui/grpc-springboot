@@ -1,0 +1,17 @@
+server:
+  port: 8088
+
+grpc:
+  server:
+    in-process-name: grpc
+    # 修改服务端默认入参最大大小，默认值为4M ，这里修改为20M   20*1024*1024
+    max-inbound-message-size: 20971520
+    # grpc 端口号
+    port: 8088
+  client:
+    GLOBAL:
+      negotiation-type: plaintext
+      # 修改客户端端默认入参最大大小，默认值为4M ，这里修改为20M   20*1024*1024
+      max-inbound-message-size: 20971520
+      # 客户端指定连接服务端地址
+      address: 'static://127.0.0.1:8088'
